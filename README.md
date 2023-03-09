@@ -20,13 +20,13 @@ Flaskによって開発されたアプリは通常1つのリクエストしか�
  - database \
 Firebaseからの データの読み込みや受け渡しを行う．
  
- - static
+ - static \
  画像ファイルや，Firebaseコンフィグなどの静的ファイルを格納．
  
- - templates
+ - templates \
  表示する.htmlファイルを格納．
 
-- app.py
+- app.py \
 アプリのルーティングやデータの受け渡しなど，核となるファイル．
 
 ## Firebase
