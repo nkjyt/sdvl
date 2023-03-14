@@ -20,6 +20,7 @@ tdb = database.testDB()
 ini = database.Initialize()
 timer = f_timer.Timer()
 
+#ログイン画面
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -38,6 +39,7 @@ def login():
     except:
         return render_template("login.html", msg="メールアドレスまたはパスワードが間違っています。")
 
+
 @app.route("/", methods=['GET'])
 def index():
     try:
@@ -54,6 +56,7 @@ def logout():
     del session['usr']
     return redirect(url_for('login'))
 
+#機能選択画面
 @app.route("/select", methods=['GET'])
 def select():
     try:
@@ -64,6 +67,7 @@ def select():
     except:
         return redirect(url_for('login'))
 
+#アノテーション画面
 @app.route("/annotation", methods=["GET", "POST"])
 def annotaion():
     try:
@@ -93,12 +97,14 @@ def annotaion():
         return render_template("annotation.html", word=andb.eng, defs=andb.defs, path=andb.imgurl,
          isTrans=False, maxLen=andb.maxLen, idx=andb.index+1)
 
+#単語翻訳時の画面
 @app.route("/annotation/translate", methods=["GET", "POST"])
 def annotation_translate():
 
     return render_template("annotation.html", word=andb.eng, defs=andb.defs, path=andb.imgurl,
      isTrans=True, jpn=andb.jpn,  maxLen=andb.maxLen, idx=andb.index+1)
 
+#単語セットの選択画面
 @app.route("/select/wordset", methods=["GET", "POST"])
 def select_wordset():
     try:
@@ -109,6 +115,7 @@ def select_wordset():
     annotated = andb.get_annotated_list(uid)
     return render_template("select_wordset.html", index_list=li, annotated=annotated)
 
+#クイズ機能の画面
 @app.route("/learning", methods=["GET", "POST"])
 def learning():
     try:
@@ -133,6 +140,7 @@ def learning():
         return render_template("learning.html", word=ldb.eng, defs=ldb.defs,
          path=ldb.imgurl, maxLen=ldb.maxLen, idx=ldb.index+1)
 
+#クイズ機能の正解表示画面
 @app.route("/learning/answer", methods=["GET", "POST"])
 def learning_answer():
     if request.method == "POST":
@@ -148,6 +156,7 @@ def learning_answer():
             return render_template("learning_answer.html",word=ldb.eng, defs=ldb.defs,
          path=ldb.imgurl, maxLen=ldb.maxLen, idx=ldb.index+1, answer=False, imgWord = trueWord)
 
+#テスト画面
 @app.route("/test", methods=["GET", "POST"])
 def test():
     try:
