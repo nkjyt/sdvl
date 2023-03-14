@@ -7,14 +7,14 @@ class Initialize():
 
     def __init__(self):
         if not firebase_admin._apps:
-            cred = credentials.Certificate("static/config/imp-sdvl-firebase-adminsdk-isaas-021c35f642.json")
+            cred = credentials.Certificate("static/imp-sdvl-firebase-adminsdk-isaas-021c35f642.json")
             firebase_admin.initialize_app(cred)
 
     def login(self, uid):
         self.uid = uid
         print(f"login: {uid}")
 
-
+#アノテーション機能のデータベース
 class annotationDB():
     def __init__(self):
         Initialize()
@@ -87,6 +87,7 @@ class annotationDB():
         except:
             self.db.collection("annotation_log").document(self.UID).set({self.wordlist : self.log})
 
+#クイズ機能のデータベース
 class learningDB():
     def __init__(self):
         Initialize()
@@ -192,6 +193,7 @@ class learningDB():
         else:
             return False
 
+#テスト用のデータベース
 class testDB():
     def __init__(self):
         Initialize()
