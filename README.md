@@ -1,7 +1,7 @@
 # sdvl
 
 ## セットアップ
-GPUサーバ上で開発を行った．docker-compose.ymlのvolumeを書き換えておくこと．
+GPUサーバ上で開発を行った．docker-compose.ymlのvolumeを書き換えて，マウントするディレクトリを指定しておくこと．
 
     $ docker-compose up -d
     $ docker exex -it sdvl_dev /bin/bash
