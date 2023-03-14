@@ -33,7 +33,7 @@ Firebaseからの データの読み込みや受け渡しを行う．
 
 Firebaseとの連携に必要な設定ファイルは2つ．公開できないため，以下のディレクトリに保存している．
 
-> //mpshare/impshare/nakajima_yuta/firebase
+> //impshare/impshare/nakajima_yuta/firebase
 
 実行する際は，以下の場所に置く．
 
